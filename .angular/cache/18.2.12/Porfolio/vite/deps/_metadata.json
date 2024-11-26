@@ -1,34 +1,58 @@
 {
-  "hash": "b0c4943b",
-  "configHash": "a3ab9420",
-  "lockfileHash": "ca0a6c9f",
-  "browserHash": "bf390a26",
+  "hash": "ebf1140c",
+  "configHash": "caa1489a",
+  "lockfileHash": "c5f0ac41",
+  "browserHash": "78a6e4e2",
   "optimized": {
+    "@angular/cdk/drag-drop": {
+      "src": "../../../../../../node_modules/@angular/cdk/fesm2022/drag-drop.mjs",
+      "file": "@angular_cdk_drag-drop.js",
+      "fileHash": "b3a289c0",
+      "needsInterop": false
+    },
+    "@angular/common": {
+      "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
+      "file": "@angular_common.js",
+      "fileHash": "64844fa1",
+      "needsInterop": false
+    },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-      "fileHash": "86b8e0cf",
+      "fileHash": "198f32df",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-      "fileHash": "c7721c3d",
+      "fileHash": "f0d8788a",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-      "fileHash": "0c631bf7",
+      "fileHash": "57d6b93b",
+      "needsInterop": false
+    },
+    "tslib": {
+      "src": "../../../../../../node_modules/tslib/tslib.es6.mjs",
+      "file": "tslib.js",
+      "fileHash": "881d1eda",
       "needsInterop": false
     }
   },
   "chunks": {
-    "chunk-OYIAGWIJ": {
-      "file": "chunk-OYIAGWIJ.js"
+    "chunk-ITTLQ52I": {
+      "file": "chunk-ITTLQ52I.js"
     },
-    "chunk-KNRYTDUQ": {
-      "file": "chunk-KNRYTDUQ.js"
+    "chunk-GCST5GI6": {
+      "file": "chunk-GCST5GI6.js"
+    },
+    "chunk-QCH4WWI5": {
+      "file": "chunk-QCH4WWI5.js"
+    },
+    "chunk-EPAV4CNQ": {
+      "file": "chunk-EPAV4CNQ.js"
     }
   }
 }
