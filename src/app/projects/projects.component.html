@@ -1,11 +1,14 @@
-<section class="dark-section">
-    <h2>Projects</h2>
-
-    <div class="project">
-        <div>
-        <h3>A7LNA NES FEL KAYES</h3>
-        <P> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos rem nemo a fuga doloribus, ipsam quibusdam blanditiis quidem consequatur quis. Fugit qui accusantium dolorum iure deserunt, iusto commodi natus officia.</P>
+<section class="projects-section">
+    <h1>Mes Projets</h1>
+    <div class="projects-grid">
+      <div class="project-card" *ngFor="let project of projects">
+        <img [src]="project.image" [alt]="project.title">
+        <div class="project-content">
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+          <button (click)="openProject(project.link)">Voir le projet</button>
+        </div>
+      </div>
     </div>
-    <img src="assets/github-logo.png" alt="project">
-</div>
-</section>
+  </section>
+  

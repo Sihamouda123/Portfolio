@@ -1,41 +1,101 @@
-.links{
-display: flex;
-margin: 25px;
-}
-img{
-    width: 100px;
-}
-a{
+/* Section principale */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #1e293b, #3a5868);
+    color: #f0f4f8;
+    height: 100vh; /* Pleine hauteur pour occuper tout l'écran */
+  }
+  
+  /* Texte d'introduction */
+  .intro h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #64ffda;
+    margin-bottom: 1rem;
+    text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .intro p {
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    color: #e2e8f0;
+  }
+  
+  /* Conteneur des liens */
+  .links {
+    display: flex;
+    gap: 2rem; /* Espacement entre les liens */
+    justify-content: center;
+  }
+  
+  /* Style des liens */
+  .links a {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    position :relative;
+    position: relative;
     padding: 0.5rem 1rem;
-    width: 100px;
-
-    &::before{
-        content: "";
-        opacity: 0;
-        transition: all 0.2s;
-        position: absolute;
-        background: radial-gradient(#223640 40%, transparent, 70%);
-        top: -25px;
-        left: -25px;
-        height: 150px;
-        width: 150px;
-        border-radius: 100%;
-        z-index: -5;
+    width: 120px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .links a:hover {
+    transform: translateY(-5px); /* Lien "monte" légèrement au survol */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Image des liens */
+  .links img {
+    width: 80px; /* Taille des icônes */
+    height: auto;
+    border-radius: 50%; /* Icônes arrondies */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .links a:hover img {
+    transform: scale(1.2); /* Zoom de l'icône au survol */
+    opacity: 0.9;
+  }
+  
+  /* Texte caché sous les liens */
+  .links .hidden-label {
+    opacity: 0;
+    font-size: 0.9rem;
+    color: #64ffda;
+    margin-top: 0.5rem;
+    transition: opacity 0.3s ease;
+  }
+  
+  .links a:hover .hidden-label {
+    opacity: 1;
+  }
+  .intro .profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Rond */
+    margin-bottom: 1rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  .header {
+    animation: fadeIn 1s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
     }
-    div.hidden-label{
-        opacity: 0;
-        transition: all 0.2s;
-        color : white;
-        font-size: 0.85rem;
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
-    &:focus, &:hover {
-        &::before ,div.hidden-label{
-            opacity: 1;
-        }
-    }
-}
+  }
+      

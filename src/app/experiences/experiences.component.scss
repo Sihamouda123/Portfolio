@@ -1,7 +1,69 @@
-.jobs{
+/* Section générale */
+.dark-section {
+    padding: 2rem;
+    background: #21343c; /* Couleur de fond uniforme avec le reste de la page */
+    border-radius: 8px;
+    color: #f0f4f8; /* Couleur du texte */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombre douce */
+  }
+  
+  .dark-section h2 {
+    font-size: 2.5rem;
+    color: #64ffda; /* Couleur d'accent */
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Conteneur des jobs */
+  .jobs {
     display: flex;
-}
-
-.job{
-    width: 50%;
-}
+    gap: 2rem; /* Ajoute un espacement entre les jobs */
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur les petits écrans */
+  }
+  
+  /* Chaque job */
+  .job {
+    flex: 1 1 calc(50% - 1rem); /* Prend 50% de la largeur avec un espacement */
+    padding: 1.5rem;
+    background: #283e55; /* Fond légèrement contrasté */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .job:hover {
+    transform: scale(1.05); /* Zoom léger au survol */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée */
+  }
+  
+  /* Titres et texte */
+  .job h3 {
+    font-size: 1.5rem;
+    margin: 0;
+    color: #9ad4ec;
+  }
+  
+  .job h4 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: #64ffda;
+  }
+  
+  .job p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #e2e8f0;
+    margin-top: 1rem;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .jobs {
+      flex-direction: column; /* Les éléments s'empilent verticalement */
+    }
+  
+    .job {
+      flex: 1 1 100%; /* Prend toute la largeur */
+    }
+  }
+  
