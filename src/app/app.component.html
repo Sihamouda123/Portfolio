@@ -1,6 +1,23 @@
-<app-header></app-header>
-<app-skills></app-skills>
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-container">
+    <a routerLink="/" class="navbar-logo">Mohamed</a>
 
-  <app-projects></app-projects>
-  <app-experiences></app-experiences>
-<app-footer></app-footer>
+    <ul class="navbar-menu">
+      <li><a routerLink="/" fragment="header-section">Accueil</a></li>
+      <li><a routerLink="/skills" fragment="skills-section">Compétences</a></li>
+      <li><a routerLink="/projects" fragment="projects-section">Projets</a></li>
+      <li><a routerLink="/experiences" fragment="experiences-section">Expériences</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Sections -->
+<app-header id="header-section"></app-header>
+<app-skills id="skills-section"></app-skills>
+<app-projects id="projects-section"></app-projects>
+<app-experiences id="experiences-section"></app-experiences>
+<app-footer id="contact-section"></app-footer>
+
+<!-- Router Outlet -->
+<router-outlet></router-outlet>

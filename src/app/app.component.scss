@@ -1,33 +1,42 @@
-/* Assurez une largeur contrôlée et un centrage */
-main {
-    width: 90%; /* Limite la largeur à 90% de l'écran */
-    margin: auto; /* Centre le contenu horizontalement */
-    color: #ffffff; /* Texte en blanc */
-    display: flex; /* Active le layout Flexbox */
-    flex-direction: column; /* Aligne les sections verticalement */
-    gap: 2rem; /* Ajoute un espace entre les sections */
-    padding: 1rem 0; /* Ajoute un espace en haut et en bas */
-  }
-  
-  /* Style des sections principales */
-  section {
-    padding: 1.5rem; /* Espace interne dans chaque section */
-    background: #21343c; /* Arrière-plan sombre pour chaque section */
-    border-radius: 8px; /* Coins arrondis */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Ajout d'une ombre légère */
-    width: 100%; /* Prend la largeur de `main` */
-  }
-  
-  /* Footer */
-  app-footer {
-    text-align: center;
-    padding: 1rem;
-    background: #1e293b;
-    border-radius: 8px;
-    margin-top: 2rem;
-    color: #9ad4ec;
-  }
-  section {
-    margin-bottom: 2rem;
-  }
-    
+/* Navbar */
+.navbar {
+  background-color: var(--primary-color, #333);
+  color: var(--text-light, #fff);
+  padding: 1rem 2rem;
+  position: sticky; /* Ajout du sticky */
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0px 0px 8px 8px;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text-light, #fff);
+  text-decoration: none;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 3rem; /* Espace accru */
+}
+
+.navbar-menu li a {
+  text-decoration: none;
+  color: var(--text-light, #fff);
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-menu li a:hover {
+  color: var(--accent-color, #4CAF50);
+}

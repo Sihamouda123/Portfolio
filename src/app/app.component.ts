@@ -15,7 +15,7 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent, // Composant pour le header
     ProjectsComponent, // Composant pour les projets
     ExperiencesComponent, // Composant pour les expériences
-    FooterComponent, // Composant pour le footer
+    FooterComponent,
   ],
   templateUrl: './app.component.html', // HTML de votre composant racine
   styleUrls: ['./app.component.scss'], // Fichier de styles spécifique à ce composant
