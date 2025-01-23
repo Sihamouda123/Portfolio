@@ -1,42 +1,131 @@
 /* Navbar */
 .navbar {
-  background-color: var(--primary-color, #333);
-  color: var(--text-light, #fff);
+  background-color: #1e293b;
+  color: #f0f4f8;
   padding: 1rem 2rem;
-  position: sticky; /* Ajout du sticky */
+  position: sticky;
   top: 0;
   width: 100%;
-  z-index: 9999;
+  z-index: 1000;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border-radius: 0px 0px 8px 8px;
 }
 
 .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .navbar-logo {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
-  color: var(--text-light, #fff);
+  color: #64ffda;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
+.navbar-logo:hover {
+  color: #52e0c4;
+}
+
+/* Menu Hamburger (Mobile) */
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.hamburger {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #64ffda;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #64ffda;
+  transition: transform 0.3s ease;
+}
+
+.hamburger::before {
+  transform: translateY(-8px);
+}
+
+.hamburger::after {
+  transform: translateY(8px);
+}
+
+.navbar-toggle.active .hamburger {
+  background-color: transparent;
+}
+
+.navbar-toggle.active .hamburger::before {
+  transform: rotate(45deg);
+}
+
+.navbar-toggle.active .hamburger::after {
+  transform: rotate(-45deg);
+}
+
+/* Menu Principal */
 .navbar-menu {
   display: flex;
   list-style: none;
-  gap: 3rem; /* Espace accru */
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-menu li a {
   text-decoration: none;
-  color: var(--text-light, #fff);
+  color: #f0f4f8;
   font-size: 1.1rem;
-  transition: color 0.3s ease;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .navbar-menu li a:hover {
-  color: var(--accent-color, #4CAF50);
+  background-color: #64ffda;
+  color: #1e293b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #1e293b;
+    padding: 1rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
+  .navbar-menu li a {
+    width: 100%;
+    text-align: center;
+  }
 }

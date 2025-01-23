@@ -1,13 +1,21 @@
 <!-- Navbar -->
+<!-- Navbar -->
 <nav class="navbar">
   <div class="navbar-container">
+    <!-- Logo -->
     <a routerLink="/" class="navbar-logo">Mohamed</a>
 
-    <ul class="navbar-menu">
-      <li><a routerLink="/" fragment="header-section">Accueil</a></li>
-      <li><a routerLink="/skills" fragment="skills-section">Compétences</a></li>
-      <li><a routerLink="/projects" fragment="projects-section">Projets</a></li>
-      <li><a routerLink="/experiences" fragment="experiences-section">Expériences</a></li>
+    <!-- Menu Hamburger (Mobile) -->
+    <button class="navbar-toggle" aria-label="Toggle navigation" (click)="toggleMenu()">
+      <span class="hamburger"></span>
+    </button>
+
+    <!-- Menu Principal -->
+    <ul class="navbar-menu" [class.active]="isMenuOpen">
+      <li><a routerLink="/" fragment="header-section" (click)="closeMenu()">Accueil</a></li>
+      <li><a routerLink="/skills" fragment="skills-section" (click)="closeMenu()">Compétences</a></li>
+      <li><a routerLink="/projects" fragment="projects-section" (click)="closeMenu()">Projets</a></li>
+      <li><a routerLink="/experiences" fragment="experiences-section" (click)="closeMenu()">Expériences</a></li>
     </ul>
   </div>
 </nav>
