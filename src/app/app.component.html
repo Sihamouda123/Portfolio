@@ -1,31 +1,31 @@
 <!-- Navbar -->
-<!-- Navbar -->
 <nav class="navbar">
   <div class="navbar-container">
-    <!-- Logo -->
-    <a routerLink="/" class="navbar-logo">Mohamed</a>
-
-    <!-- Menu Hamburger (Mobile) -->
-    <button class="navbar-toggle" aria-label="Toggle navigation" (click)="toggleMenu()">
+    <a href="#header" class="navbar-logo">Mohamed</a>
+    <button class="navbar-toggle" (click)="toggleMenu()">
       <span class="hamburger"></span>
     </button>
-
-    <!-- Menu Principal -->
     <ul class="navbar-menu" [class.active]="isMenuOpen">
-      <li><a routerLink="/" fragment="header-section" (click)="closeMenu()">Accueil</a></li>
-      <li><a routerLink="/skills" fragment="skills-section" (click)="closeMenu()">Compétences</a></li>
-      <li><a routerLink="/projects" fragment="projects-section" (click)="closeMenu()">Projets</a></li>
-      <li><a routerLink="/experiences" fragment="experiences-section" (click)="closeMenu()">Expériences</a></li>
+      <li><a href="#skills" (click)="closeMenu()">Compétences</a></li>
+      <li><a href="#projects" (click)="closeMenu()">Projets</a></li>
+      <li><a href="#experiences" (click)="closeMenu()">Expériences</a></li>
     </ul>
   </div>
 </nav>
 
 <!-- Sections -->
-<app-header id="header-section"></app-header>
-<app-skills id="skills-section"></app-skills>
-<app-projects id="projects-section"></app-projects>
-<app-experiences id="experiences-section"></app-experiences>
-<app-footer id="contact-section"></app-footer>
-
-<!-- Router Outlet -->
-<router-outlet></router-outlet>
+<section id="header">
+  <app-header></app-header>
+</section>
+<section id="skills">
+  <app-skills></app-skills>
+</section>
+<section id="projects">
+  <app-projects></app-projects>
+</section>
+<section id="experiences">
+  <app-experiences></app-experiences>
+</section>
+<section id="footer">
+  <app-footer></app-footer>
+</section>

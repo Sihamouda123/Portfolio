@@ -1,5 +1,5 @@
 import { ApplicationRef, Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router'; // Gère les routes Angular
+import { RouterLink, RouterModule, RouterOutlet } from '@angular/router'; // Gère les routes Angular
 import { SkillsComponent } from './skills/skills.component';
 import { HeaderComponent } from './header/header.component';
 import { ProjectsComponent } from './projects/projects.component';
@@ -17,8 +17,11 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
     ProjectsComponent, // Composant pour les projets
     ExperiencesComponent, // Composant pour les expériences
     FooterComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    RouterModule,
+    RouterLink
   ],
+
   templateUrl: './app.component.html', // HTML de votre composant racine
   styleUrls: ['./app.component.scss'], // Fichier de styles spécifique à ce composant
 })
