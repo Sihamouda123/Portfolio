@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "portfolio-ce530"
-  }
+    "default": "portfolio-ce530",
+    "y": "portfolio-ce530"
+  },
+  "targets": {},
+  "etags": {}
 }
