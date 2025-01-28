@@ -1,13 +1,12 @@
 <section class="projects-section" id="projects-section">
-  <h1>Mes Projets</h1>
+  <h1 class="projects-title">Mes Projets Récents</h1> 
   <div class="projects-grid">
-    <div class="project-card" *ngFor="let project of projects">
+    <div class="project-card" *ngFor="let project of projects" (click)="openProject(project.id)">
       <div class="project-image">
         <img [src]="project.image" [alt]="project.title">
         <div class="project-overlay">
-          <button (click)="openProject(project.id)" class="project-link">
+          <button class="project-link">
             <span>Voir les détails</span>
-            <img src="assets/external-link-icon.png" alt="Lien externe">
           </button>
         </div>
       </div>
@@ -17,4 +16,36 @@
       </div>
     </div>
   </div>
-</section>
+
+  <!-- Popup pour afficher les détails du projet -->
+<!-- Popup pour afficher les détails du projet -->
+<div *ngIf="showPopup" class="project-popup-overlay">
+  <div class="project-popup">
+    <button class="close-popup" (click)="closePopup()">&times;</button>
+    <div class="popup-content">
+      <h2>{{ selectedProject.title }}</h2>
+
+      <!-- Section des images du projet -->
+      <div class="project-images">
+        <img *ngFor="let image of selectedProject.images" [src]="image" [alt]="selectedProject.title" class="popup-image">
+      </div>
+
+      <!-- Section des technologies utilisées -->
+      <div class="project-technologies">
+        <h3>Technologies utilisées :</h3>
+        <ul>
+          <li *ngFor="let tech of selectedProject.technologies">{{ tech }}</li>
+        </ul>
+      </div>
+
+      <!-- Description du projet -->
+      <div class="project-description">
+        <h3>Description :</h3>
+        <p>{{ selectedProject.description }}</p>
+      </div>
+
+      <!-- Lien vers le projet -->
+      <a [href]="selectedProject.link" target="_blank" class="popup-link">Visiter le projet</a>
+    </div>
+  </div>
+</div>

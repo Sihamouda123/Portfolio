@@ -1,14 +1,22 @@
 .header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
   padding: 2rem 1rem;
   background: linear-gradient(135deg, #1e293b, #3a5868);
   color: #f0f4f8;
   height: 100vh;
   animation: fadeIn 1s ease-in-out;
+}
+
+.intro {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .intro h1 {
@@ -79,6 +87,76 @@
   border-radius: 50%;
   margin-bottom: 1rem;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.cv-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-photo {
+  width: 400px; /* Augmentez cette valeur selon vos besoins */
+  height: auto; /* Gardez cette propriété pour maintenir les proportions */
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.download-cv-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #64ffda, #52e0c4); /* Dégradé moderne */
+  color: #1e293b; /* Couleur du texte */
+  text-decoration: none;
+  border-radius: 50px; /* Coins arrondis */
+  font-weight: bold;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Ombre portée */
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.download-cv-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0) 70%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease;
+  border-radius: 50%;
+}
+
+.download-cv-button:hover {
+  transform: translateY(-3px); /* Effet de léger soulèvement */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée au survol */
+}
+
+.download-cv-button:hover::before {
+  transform: translate(-50%, -50%) scale(1); /* Effet de vague au survol */
+}
+
+.download-cv-button:active {
+  transform: translateY(0); /* Effet d'enfoncement au clic */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.arrow-icon {
+  margin-left: 0.5rem;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.download-cv-button:hover .arrow-icon {
+  transform: translateY(3px); /* Animation de la flèche au survol */
 }
 
 @keyframes fadeIn {

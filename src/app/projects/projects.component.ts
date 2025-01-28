@@ -12,15 +12,22 @@ import { CommonModule } from '@angular/common';
 })
 export class ProjectsComponent {
   projects: any;
+  selectedProject: any = null; // Pour stocker le projet sélectionné
+  showPopup: boolean = false; // Pour contrôler l'affichage de la popup
 
   constructor(
-    private router: Router, // Injection du Router
+    private router: Router,
     private projectService: ProjectService
   ) {
     this.projects = this.projectService.getProjects();
   }
 
   openProject(id: number) {
-    this.router.navigate(['/projects', id]); // Navigation vers la page de détails
+    this.selectedProject = this.projects.find((project: any) => project.id === id);
+    this.showPopup = true; // Afficher la popup
+  }
+
+  closePopup() {
+    this.showPopup = false; // Cacher la popup
   }
 }

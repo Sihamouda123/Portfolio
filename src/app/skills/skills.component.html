@@ -1,7 +1,25 @@
 <section class="skills-section" id="skills-section">
   <h1>Mes Compétences</h1>
+
+  <!-- Stack Front-end -->
+  <h2>Stack Front-end</h2>
   <div class="skills-grid">
-    <div class="skill-card" *ngFor="let skill of skills">
+    <div class="skill-card" *ngFor="let skill of frontEndSkills">
+      <div class="skill-icon">
+        <img [src]="skill.icon" [alt]="skill.name">
+      </div>
+      <h3>{{ skill.name }}</h3>
+      <div class="skill-progress">
+        <div class="progress-bar" [style.width]="skill.progress + '%'"></div>
+      </div>
+      <p>{{ skill.progress }}%</p>
+    </div>
+  </div>
+
+  <!-- Stack Back-end -->
+  <h2>Stack Back-end</h2>
+  <div class="skills-grid">
+    <div class="skill-card" *ngFor="let skill of backEndSkills">
       <div class="skill-icon">
         <img [src]="skill.icon" [alt]="skill.name">
       </div>

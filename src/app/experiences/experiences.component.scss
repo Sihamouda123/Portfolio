@@ -1,36 +1,136 @@
 .dark-section {
   padding: 4rem 2rem;
-  background-color: #1e293b;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
   color: #f0f4f8;
   text-align: center;
 }
 
-.job {
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.experience-title {
+  font-size: 2.5rem; /* Taille du titre */
+  color: #64ffda; /* Couleur pour correspondre au thème */
+  margin-bottom: 2rem; /* Espacement en dessous du titre */
+  text-transform: uppercase; /* Optionnel : mettre en majuscules */
+  letter-spacing: 2px; /* Espacement entre les lettres */
+  font-weight: bold; /* Texte en gras */
+  position: relative; /* Pour ajouter un effet supplémentaire si nécessaire */
+}
+
+.experience-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #64ffda; /* Ligne de décoration sous le titre */
+  margin: 0.5rem auto 0; /* Centrer la ligne */
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 4px;
+  background-color: #64ffda;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 1.5rem;
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-dot {
+  position: absolute;
+  top: 2rem;
+  width: 16px;
+  height: 16px;
+  background-color: #64ffda;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item:nth-child(odd) .timeline-dot {
+  right: -8px;
+}
+
+.timeline-item:nth-child(even) .timeline-dot {
+  left: -8px;
+}
+
+.timeline-content {
   background-color: #283e55;
   border-radius: 10px;
   padding: 1.5rem;
-  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.job:hover {
+.timeline-item:hover .timeline-content {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
-.job h3 {
-  font-size: 1.5rem;
+.timeline-icon {
+  font-size: 2rem;
   color: #64ffda;
   margin-bottom: 1rem;
 }
 
-.job h4 {
+.timeline-content h3 {
+  font-size: 1.5rem;
+  color: #64ffda;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content h4 {
   font-size: 1.2rem;
   color: #9ad4ec;
   margin-bottom: 1rem;
 }
 
-.job p {
+.timeline-content p {
   font-size: 1rem;
   color: #e2e8f0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.3s; }
+.timeline-item:nth-child(3) { animation-delay: 0.5s; }
+.timeline-date {
+  font-size: 0.9rem;
+  color: #9ad4ec;
+  margin-bottom: 1rem;
+  font-style: italic;
 }

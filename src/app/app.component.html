@@ -6,9 +6,11 @@
       <span class="hamburger"></span>
     </button>
     <ul class="navbar-menu" [class.active]="isMenuOpen">
+      <li><a href="#header" (click)="closeMenu()">Acceuil</a></li>
       <li><a href="#skills" (click)="closeMenu()">Compétences</a></li>
       <li><a href="#projects" (click)="closeMenu()">Projets</a></li>
       <li><a href="#experiences" (click)="closeMenu()">Expériences</a></li>
+      <li><a href="#footer" (click)="closeMenu()">About me</a></li>
     </ul>
   </div>
 </nav>

@@ -1,10 +1,12 @@
+// Section principale des projets
 .projects-section {
   padding: 4rem 2rem;
   text-align: center;
-  background-color: #1e293b;
-  color: #f0f4f8;
+  background-color: #1e293b; // Fond sombre
+  color: #f0f4f8; // Texte clair
 }
 
+// Grille des projets
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -13,97 +15,103 @@
   margin: 0 auto;
 }
 
+// Carte de projet
 .project-card {
-  background-color: #283e55;
+  background-color: #283e55; // Fond de carte
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  perspective: 1000px; /* Pour l'effet 3D */
+  perspective: 1000px; // Pour l'effet 3D
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05) rotateY(10deg); // Effet 3D au survol
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
 }
 
-.project-card:hover {
-  transform: scale(1.05) rotateY(10deg); /* Effet 3D au survol */
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-}
-
+// Image du projet
 .project-image {
   position: relative;
   width: 100%;
   height: 200px;
   overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .project-card:hover & img {
+    transform: scale(1.1); // Zoom léger au survol
+  }
 }
 
-.project-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.1);
-}
-
+// Overlay de l'image
 .project-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(0, 0, 0, 0.7); // Fond semi-transparent
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
+
+  .project-card:hover & {
+    opacity: 1; // Affichage au survol
+  }
 }
 
-.project-card:hover .project-overlay {
-  opacity: 1;
-}
-
+// Bouton de lien
 .project-link {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #64ffda;
-  color: #21343c;
+  background-color: #64ffda; // Couleur verte moderne
+  color: #21343c; // Texte sombre
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #52e0c4; // Changement de couleur au survol
+  }
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
 }
 
-.project-link:hover {
-  background-color: #52e0c4;
-}
-
-.project-link img {
-  width: 16px;
-  height: 16px;
-}
-
+// Contenu de la carte
 .project-content {
   padding: 1.5rem;
   text-align: left;
+
+  h3 {
+    font-size: 1.5rem;
+    color: #64ffda; // Titre vert
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #e2e8f0; // Texte clair
+    margin-bottom: 1.5rem;
+  }
 }
 
-.project-content h3 {
-  font-size: 1.5rem;
-  color: #64ffda;
-  margin-bottom: 1rem;
-}
-
-.project-content p {
-  font-size: 1rem;
-  color: #e2e8f0;
-  margin-bottom: 1.5rem;
-}
-
-/* Animation d'entrée */
+// Animation d'entrée des cartes
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -120,10 +128,245 @@
   opacity: 0;
 }
 
-/* Délai d'animation pour chaque carte */
+// Délai d'animation pour chaque carte
 .project-card:nth-child(1) { animation-delay: 0.1s; }
 .project-card:nth-child(2) { animation-delay: 0.2s; }
 .project-card:nth-child(3) { animation-delay: 0.3s; }
 .project-card:nth-child(4) { animation-delay: 0.4s; }
 .project-card:nth-child(5) { animation-delay: 0.5s; }
 .project-card:nth-child(6) { animation-delay: 0.6s; }
+
+// Popup de détails du projet
+.project-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); // Fond sombre semi-transparent
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}
+
+// Contenu de la popup
+.project-popup {
+  background-color: #283e55; // Fond de la popup
+  border-radius: 15px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: slideIn 0.3s ease;
+
+  @keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+}
+
+// Bouton de fermeture de la popup
+.close-popup {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #64ffda; // Couleur verte
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #52e0c4; // Changement de couleur au survol
+  }
+}
+
+// Contenu de la popup
+.popup-content {
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    color: #64ffda; // Titre vert
+    margin-bottom: 1rem;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #e2e8f0; // Texte clair
+    margin-bottom: 1.5rem;
+  }
+
+  a {
+    display: inline-block;
+    background-color: #64ffda; // Bouton vert
+    color: #21343c; // Texte sombre
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #52e0c4; // Changement de couleur au survol
+    }
+  }
+}
+// Styles pour la popup
+.project-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.project-popup {
+  background-color: #283e55;
+  border-radius: 15px;
+  padding: 2rem;
+  max-width: 800px; // Augmentez la largeur pour plus de contenu
+  width: 90%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close-popup {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #64ffda;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #52e0c4;
+  }
+}
+
+.popup-content {
+  text-align: left;
+
+  h2 {
+    font-size: 2rem;
+    color: #64ffda;
+    margin-bottom: 1rem;
+  }
+
+  .project-images {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+
+    img {
+      width: 100%;
+      max-width: 200px;
+      height: auto;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+  }
+
+  .project-technologies {
+    margin-bottom: 1.5rem;
+
+    h3 {
+      font-size: 1.25rem;
+      color: #64ffda;
+      margin-bottom: 0.5rem;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+
+      li {
+        font-size: 1rem;
+        color: #e2e8f0;
+        margin-bottom: 0.25rem;
+      }
+    }
+  }
+
+  .project-description {
+    margin-bottom: 1.5rem;
+
+    h3 {
+      font-size: 1.25rem;
+      color: #64ffda;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #e2e8f0;
+    }
+  }
+  
+
+  .popup-link {
+    display: inline-block;
+    background-color: #64ffda;
+    color: #21343c;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #52e0c4;
+    }
+  }
+}
+
+.projects-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: #1e293b;
+  color: #f0f4f8;
+}
+
+.projects-title {
+  font-size: 2.5rem; // Taille de la police
+  color: #64ffda; // Couleur du texte
+  margin-bottom: 2rem; // Espacement en dessous du titre
+  text-transform: uppercase; // Convertir en majuscules
+  letter-spacing: 2px; // Espacement entre les lettres
+  font-weight: bold; // Texte en gras
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #64ffda; // Ligne de décoration
+    margin: 0.5rem auto 0;
+  }
+}
