@@ -1,13 +1,28 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="fr"> <!-- Modifier selon la langue principale du site -->
 <head>
   <meta charset="utf-8">
-  <title>Portfolio</title>
+  <title>Mohamed Hcini - Portfolio</title> <!-- Titre plus descriptif -->
   <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/png" href="remove.png">
+  <meta name="viewport" 
+        content="width=device-width, initial-scale=1, shrink-to-fit=no"> <!-- Ajout pour iOS -->
+  <meta name="description" 
+        content="Portfolio de Mohamed Hcini, développeur full-stack passionné par les technologies web"> <!-- Meta description importante -->
+  <link rel="icon"  href="assets/remove.png"> <!-- Vérifier le chemin -->
+  
+  <!-- Préchargement des polices si utilisation -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
   <app-root></app-root>
+  
+  <!-- Fallback pour les scripts désactivés -->
+  <noscript>
+    <div class="noscript-warning">
+      <h1>JavaScript est requis pour le bon fonctionnement de ce site</h1>
+      <p>Veuillez activer JavaScript dans les paramètres de votre navigateur.</p>
+    </div>
+  </noscript>
 </body>
 </html>

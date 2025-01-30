@@ -8,6 +8,11 @@
   color: #f0f4f8;
   text-align: center;
   padding: 4rem 2rem;
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+    min-height: auto;
+  }
 }
 
 .skills-section h1 {
@@ -19,6 +24,16 @@
   letter-spacing: 2px;
   margin-bottom: 2rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
 }
 
 .skills-section h2 {
@@ -28,6 +43,12 @@
   font-weight: 600;
   margin-top: 3rem;
   margin-bottom: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
 }
 
 .skills-grid {
@@ -37,6 +58,21 @@
   width: 100%;
   max-width: 1200px;
   padding: 2rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 }
 
 .skill-card {
@@ -45,17 +81,25 @@
   padding: 1.5rem;
   border-radius: 15px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+  transition: all 0.3s ease;
   cursor: pointer;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   perspective: 1000px;
-}
 
-.skill-card:hover {
-  transform: scale(1.05) rotateY(10deg);
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-  background-color: #64ffda;
-  color: #21343c;
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    background-color: #64ffda;
+    color: #21343c;
+
+    @media (max-width: 768px) {
+      transform: scale(1.03);
+    }
+  }
 }
 
 .skill-icon {
@@ -68,22 +112,29 @@
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   padding: 0.5rem;
-  transition: transform 0.3s ease;
-}
+  transition: all 0.3s ease;
 
-.skill-card:hover .skill-icon {
-  transform: rotate(360deg);
-}
+  @media (max-width: 480px) {
+    width: 50px;
+    height: 50px;
+    padding: 0.3rem;
+  }
 
-.skill-icon img {
-  width: 100%;
-  height: auto;
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .skill-card h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
   color: #64ffda;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
 }
 
 .skill-progress {
@@ -106,9 +157,13 @@
   font-size: 1rem;
   color: #9ad4ec;
   margin: 0;
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+  }
 }
 
-/* Animation d'entrée */
+/* Animation */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -125,7 +180,14 @@
   opacity: 0;
 }
 
-/* Délai d'animation pour chaque carte */
+/* Délais d'animation responsives */
+@media (max-width: 768px) {
+  .skill-card:nth-child(n) { 
+    animation-delay: 0.1s !important; 
+  }
+}
+
+/* Délais initiaux */
 .skill-card:nth-child(1) { animation-delay: 0.1s; }
 .skill-card:nth-child(2) { animation-delay: 0.2s; }
 .skill-card:nth-child(3) { animation-delay: 0.3s; }

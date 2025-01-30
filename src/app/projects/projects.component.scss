@@ -1,37 +1,91 @@
-// Section principale des projets
 .projects-section {
   padding: 4rem 2rem;
   text-align: center;
-  background-color: #1e293b; // Fond sombre
-  color: #f0f4f8; // Texte clair
+  background-color: #1e293b;
+  color: #f0f4f8;
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+  }
 }
 
-// Grille des projets
+.projects-title {
+  font-size: 2.5rem;
+  color: #64ffda;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #64ffda;
+    margin: 0.5rem auto 0;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+
+    &::after {
+      width: 40px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+  }
 }
 
-// Carte de projet
 .project-card {
-  background-color: #283e55; // Fond de carte
+  background-color: #283e55;
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  perspective: 1000px; // Pour l'effet 3D
   cursor: pointer;
 
   &:hover {
-    transform: scale(1.05) rotateY(10deg); // Effet 3D au survol
+    transform: scale(1.05);
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+
+  @media (hover: none) {
+    &:hover {
+      transform: none;
+    }
   }
 }
 
-// Image du projet
 .project-image {
   position: relative;
   width: 100%;
@@ -46,18 +100,21 @@
   }
 
   .project-card:hover & img {
-    transform: scale(1.1); // Zoom léger au survol
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 480px) {
+    height: 180px;
   }
 }
 
-// Overlay de l'image
 .project-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); // Fond semi-transparent
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -65,17 +122,21 @@
   transition: opacity 0.3s ease;
 
   .project-card:hover & {
-    opacity: 1; // Affichage au survol
+    opacity: 1;
+  }
+
+  @media (hover: none) {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.5);
   }
 }
 
-// Bouton de lien
 .project-link {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #64ffda; // Couleur verte moderne
-  color: #21343c; // Texte sombre
+  background-color: #64ffda;
+  color: #21343c;
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;
@@ -84,151 +145,40 @@
   transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #52e0c4; // Changement de couleur au survol
+    background-color: #52e0c4;
   }
 
-  img {
-    width: 16px;
-    height: 16px;
+  @media (max-width: 480px) {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
   }
 }
 
-// Contenu de la carte
 .project-content {
   padding: 1.5rem;
   text-align: left;
 
   h3 {
     font-size: 1.5rem;
-    color: #64ffda; // Titre vert
+    color: #64ffda;
     margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.3rem;
+    }
   }
 
   p {
     font-size: 1rem;
-    color: #e2e8f0; // Texte clair
+    color: #e2e8f0;
     margin-bottom: 1.5rem;
-  }
-}
 
-// Animation d'entrée des cartes
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.project-card {
-  animation: fadeInUp 0.5s ease forwards;
-  opacity: 0;
-}
-
-// Délai d'animation pour chaque carte
-.project-card:nth-child(1) { animation-delay: 0.1s; }
-.project-card:nth-child(2) { animation-delay: 0.2s; }
-.project-card:nth-child(3) { animation-delay: 0.3s; }
-.project-card:nth-child(4) { animation-delay: 0.4s; }
-.project-card:nth-child(5) { animation-delay: 0.5s; }
-.project-card:nth-child(6) { animation-delay: 0.6s; }
-
-// Popup de détails du projet
-.project-popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8); // Fond sombre semi-transparent
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  animation: fadeIn 0.3s ease;
-
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
-}
-
-// Contenu de la popup
-.project-popup {
-  background-color: #283e55; // Fond de la popup
-  border-radius: 15px;
-  padding: 2rem;
-  max-width: 600px;
-  width: 90%;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  position: relative;
-  animation: slideIn 0.3s ease;
-
-  @keyframes slideIn {
-    from { transform: translateY(-20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-}
-
-// Bouton de fermeture de la popup
-.close-popup {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #64ffda; // Couleur verte
-  cursor: pointer;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #52e0c4; // Changement de couleur au survol
-  }
-}
-
-// Contenu de la popup
-.popup-content {
-  text-align: center;
-
-  h2 {
-    font-size: 2rem;
-    color: #64ffda; // Titre vert
-    margin-bottom: 1rem;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    font-size: 1rem;
-    color: #e2e8f0; // Texte clair
-    margin-bottom: 1.5rem;
-  }
-
-  a {
-    display: inline-block;
-    background-color: #64ffda; // Bouton vert
-    color: #21343c; // Texte sombre
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: #52e0c4; // Changement de couleur au survol
+    @media (max-width: 480px) {
+      font-size: 0.9rem;
     }
   }
 }
-// Styles pour la popup
+
 .project-popup-overlay {
   position: fixed;
   top: 0;
@@ -240,16 +190,23 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 1rem;
 }
 
 .project-popup {
   background-color: #283e55;
   border-radius: 15px;
   padding: 2rem;
-  max-width: 800px; // Augmentez la largeur pour plus de contenu
+  max-width: 800px;
   width: 90%;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
   position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
 }
 
 .close-popup {
@@ -266,6 +223,11 @@
   &:hover {
     color: #52e0c4;
   }
+
+  @media (max-width: 480px) {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
 }
 
 .popup-content {
@@ -275,19 +237,29 @@
     font-size: 2rem;
     color: #64ffda;
     margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
 
   .project-images {
     display: flex;
     gap: 1rem;
     margin-bottom: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
 
     img {
-      width: 100%;
-      max-width: 200px;
-      height: auto;
+      min-width: 200px;
+      height: 150px;
       border-radius: 10px;
       object-fit: cover;
+
+      @media (max-width: 480px) {
+        min-width: 160px;
+        height: 120px;
+      }
     }
   }
 
@@ -298,16 +270,24 @@
       font-size: 1.25rem;
       color: #64ffda;
       margin-bottom: 0.5rem;
+
+      @media (max-width: 480px) {
+        font-size: 1.1rem;
+      }
     }
 
     ul {
-      list-style-type: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
       padding: 0;
 
       li {
-        font-size: 1rem;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.9rem;
         color: #e2e8f0;
-        margin-bottom: 0.25rem;
       }
     }
   }
@@ -324,9 +304,9 @@
     p {
       font-size: 1rem;
       color: #e2e8f0;
+      line-height: 1.6;
     }
   }
-  
 
   .popup-link {
     display: inline-block;
@@ -341,32 +321,32 @@
     &:hover {
       background-color: #52e0c4;
     }
+
+    @media (max-width: 480px) {
+      width: 100%;
+      text-align: center;
+    }
   }
 }
 
-.projects-section {
-  padding: 4rem 2rem;
-  text-align: center;
-  background-color: #1e293b;
-  color: #f0f4f8;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.projects-title {
-  font-size: 2.5rem; // Taille de la police
-  color: #64ffda; // Couleur du texte
-  margin-bottom: 2rem; // Espacement en dessous du titre
-  text-transform: uppercase; // Convertir en majuscules
-  letter-spacing: 2px; // Espacement entre les lettres
-  font-weight: bold; // Texte en gras
-  position: relative;
-  display: inline-block;
+.project-card {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
 
-  &::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background-color: #64ffda; // Ligne de décoration
-    margin: 0.5rem auto 0;
+@media (max-width: 768px) {
+  .project-card:nth-child(n) {
+    animation-delay: 0.1s !important;
   }
 }
